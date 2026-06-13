@@ -16,6 +16,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 
 export const api = {
   list: <T>(resource: string) => request<T[]>(`/${resource}`),
+  get: <T>(path: string) => request<T>(`/${path}`),
   create: <T>(resource: string, body: unknown) =>
     request<T>(`/${resource}`, { method: 'POST', body: JSON.stringify(body) }),
   update: <T>(resource: string, id: string, body: unknown) =>

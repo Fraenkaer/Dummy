@@ -72,3 +72,42 @@ export interface Projekt {
   anlagenteile: ProjektAnlagenteil[];
   endDatum?: string;
 }
+
+export interface MontageplatzKonflikt {
+  montageplatzId: string;
+  projektA: { id: string; name: string; startDatum: string; endDatum: string };
+  projektB: { id: string; name: string; startDatum: string; endDatum: string };
+  ueberlappungVon: string;
+  ueberlappungBis: string;
+}
+
+export interface TeamKonfliktEintrag {
+  id: string;
+  name: string;
+  vorgangName: string;
+}
+
+export interface TeamKonflikt {
+  teamId: string;
+  von: string;
+  bis: string;
+  bedarf: number;
+  kapazitaet: number;
+  projekte: TeamKonfliktEintrag[];
+}
+
+export interface MaterialKonflikt {
+  projektId: string;
+  projektName: string;
+  vorgangId: string;
+  vorgangName: string;
+  anlagenteilName: string;
+  benoetigtAb: string;
+  verfuegbarAb: string;
+}
+
+export interface Konflikte {
+  montageplatz: MontageplatzKonflikt[];
+  team: TeamKonflikt[];
+  material: MaterialKonflikt[];
+}

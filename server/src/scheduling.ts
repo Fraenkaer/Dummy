@@ -64,3 +64,14 @@ export function projektEndDatum(vorgaenge: ProjektVorgang[]): string | undefined
   const last = sorted[sorted.length - 1];
   return lastWorkday(last.startDatum, last.dauerTage);
 }
+
+/** Liste aller Arbeitstage (Mo–Fr) eines Vorgangs, beginnend bei `startDatum`. */
+export function vorgangArbeitstage(startDatum: string, dauerTage: number): string[] {
+  const dates: string[] = [];
+  let current = nextWorkday(startDatum);
+  for (let i = 0; i < dauerTage; i++) {
+    dates.push(current);
+    current = addWorkdays(current, 1);
+  }
+  return dates;
+}

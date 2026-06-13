@@ -24,6 +24,13 @@ export function addWorkdays(iso: string, workdays: number): string {
   return toIso(d);
 }
 
+/** Verschiebt ein Datum um `days` Kalendertage (für Drag & Drop). */
+export function addDays(iso: string, days: number): string {
+  const d = toDate(iso);
+  d.setDate(d.getDate() + days);
+  return toIso(d);
+}
+
 export function lastWorkday(startIso: string, dauerTage: number): string {
   if (dauerTage <= 0) return startIso;
   return addWorkdays(startIso, dauerTage - 1);

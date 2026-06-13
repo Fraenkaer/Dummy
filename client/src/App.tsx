@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ProjektePage from './pages/ProjektePage';
+import KalenderPage from './pages/KalenderPage';
 import MontageplaetzePage from './pages/MontageplaetzePage';
 import TeamsPage from './pages/TeamsPage';
 import AnlagenteilePage from './pages/AnlagenteilePage';
@@ -15,6 +16,9 @@ function App() {
           <ul>
             <li>
               <NavLink to="/projekte">Projekte</NavLink>
+            </li>
+            <li>
+              <NavLink to="/kalender">Jahreskalender</NavLink>
             </li>
             <li>
               <NavLink to="/montageplaetze">Montageplätze</NavLink>
@@ -34,6 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/projekte" replace />} />
             <Route path="/projekte" element={<ProjektePage />} />
+            <Route path="/kalender" element={<KalenderPage />} />
             <Route path="/montageplaetze" element={<MontageplaetzePage />} />
             <Route path="/teams" element={<TeamsPage />} />
             <Route path="/anlagenteile" element={<AnlagenteilePage />} />

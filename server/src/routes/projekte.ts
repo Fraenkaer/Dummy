@@ -91,7 +91,7 @@ projekteRouter.put('/:id', async (req, res) => {
     return;
   }
   projekt.name = req.body.name ?? projekt.name;
-  projekt.kunde = clean(req.body.kunde);
+  if (req.body.kunde !== undefined) projekt.kunde = clean(req.body.kunde);
   projekt.montageplatzId = req.body.montageplatzId ?? projekt.montageplatzId;
   if (req.body.startDatum && req.body.startDatum !== projekt.startDatum) {
     projekt.startDatum = req.body.startDatum;
