@@ -41,3 +41,34 @@ export interface StandardArbeitsplan {
   beschreibung?: string;
   phasen: ArbeitsplanPhase[];
 }
+
+export interface ProjektVorgang {
+  id: string;
+  reihenfolge: number;
+  name: string;
+  startDatum: string;
+  dauerTage: number;
+  typ: VorgangTyp;
+  teamId?: string;
+  kapazitaetsbedarf?: number;
+  anlagenteilBedarfId?: string;
+}
+
+export interface ProjektAnlagenteil {
+  id: string;
+  name: string;
+  anlagenteilId?: string;
+  verfuegbarAb: string;
+}
+
+export interface Projekt {
+  id: string;
+  name: string;
+  kunde?: string;
+  startDatum: string;
+  montageplatzId: string;
+  arbeitsplanId?: string;
+  vorgaenge: ProjektVorgang[];
+  anlagenteile: ProjektAnlagenteil[];
+  endDatum?: string;
+}
