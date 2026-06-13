@@ -2,16 +2,12 @@ import { Router } from 'express';
 import { randomUUID } from 'node:crypto';
 import { db } from '../db.js';
 import { ArbeitsplanPhase, StandardArbeitsplan } from '../types.js';
+import { clean } from '../util.js';
 
 export const arbeitsplaeneRouter = Router();
 
 function findPlan(id: string): StandardArbeitsplan | undefined {
   return db.data.standardArbeitsplaene.find((plan) => plan.id === id);
-}
-
-/** Wandelt null/leeren String in undefined um, damit optionale Felder geleert werden können. */
-function clean<T>(value: T | null | undefined | ''): T | undefined {
-  return value === null || value === '' || value === undefined ? undefined : value;
 }
 
 arbeitsplaeneRouter.get('/', (_req, res) => {
