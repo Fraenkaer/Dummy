@@ -1,0 +1,228 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 16px;
+}
+
+.sidebar h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar a:hover {
+  background: var(--accent-bg);
+}
+
+.sidebar a.active {
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.content {
+  flex: 1;
+  padding: 24px 32px;
+  max-width: 1000px;
+}
+
+.page > table {
+  margin-bottom: 24px;
+}
+
+.form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+}
+
+.form .row {
+  display: flex;
+  gap: 12px;
+}
+
+.form .row > label {
+  flex: 1;
+}
+
+.form .actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* Jahreskalender */
+
+.kalender-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.kalender-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  margin-bottom: 24px;
+}
+
+.kalender-grid {
+  position: relative;
+}
+
+.kalender-monthrow {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.kalender-monthrow-body {
+  position: relative;
+  height: 28px;
+}
+
+.kalender-month {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--border);
+  padding: 4px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.kalender-row {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.kalender-row:last-child {
+  border-bottom: none;
+}
+
+.kalender-row-label {
+  flex-shrink: 0;
+  width: 200px;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kalender-row-label.kalender-row-hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.kalender-row-body {
+  position: relative;
+}
+
+.kalender-weekend {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--bg);
+}
+
+.kalender-today {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--danger);
+  z-index: 1;
+}
+
+.kalender-bar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: grab;
+  z-index: 2;
+}
+
+.kalender-bar-konflikt {
+  border-color: var(--warning);
+  background: var(--warning-bg);
+  color: #8a6400;
+}
+
+.kalender-bar-dragging {
+  cursor: grabbing;
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.kalender-konflikte h4 {
+  margin: 16px 0 4px;
+  font-size: 14px;
+}
+
+.kalender-konflikte ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.kalender-konflikte li {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
